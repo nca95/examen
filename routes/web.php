@@ -14,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('template.index');
-});
-
+    return view('posts.index',['posts' => \App\Models\Post::paginate(12)]);
+})->name('post.index');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
