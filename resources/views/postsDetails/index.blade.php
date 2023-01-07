@@ -50,12 +50,12 @@
                 <div class="wrapper-morefrom">
                     <div class="text-morefrom">More from .psd</div>
                     <div class="image-morefrom">
-                        <a href="#"><div class="image-morefrom-1"><img src="{{asset('img/' . $post->image)}}" alt="" width="430" height="330"/></div></a>
-                        <a href="#"><div class="image-morefrom-2"><img src="{{asset('img/' . $post->image)}}" height="330"/></div></a>
-                        <a href="#"><div class="image-morefrom-3"><img src="{{asset('img/' . $post->image)}}" height="330"/></div></a>
-                        <a href="#"><div class="image-morefrom-4"><img src="{{asset('img/' . $post->image)}}" height="330"/></div></a>
+                        @include('posts._recents', [
+                            'posts' => \App\Models\Post::orderBy('created_at', 'desc')->take(4)->get(),
+                        ])
                     </div>
                 </div>
+       
 
             </div>
 
