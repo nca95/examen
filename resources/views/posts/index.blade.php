@@ -7,6 +7,7 @@
 @foreach ($posts as $post)
 <figure class="white">
     <a href="#">
+        <h1>posts</h1>
         <img src="{{ asset('img/' . $post->image) }}" alt="" />
         <dl>
             <dt>HTML theme</dt>
