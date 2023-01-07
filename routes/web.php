@@ -21,6 +21,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('posts/{post}', function (\App\Models\Post $post, \App\Models\Comment $comment) {
-    return view('postsDetails.index', compact('post'), compact('comment'));
+Route::get('posts/{post}', function (\App\Models\Post $post) {
+    $comments=$post->comments;
+    return view('postsDetails.index', compact('post'), compact('comments'));
 })->name('posts.show');

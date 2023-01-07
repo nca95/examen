@@ -20,7 +20,7 @@
 
             <div class="work">
                 <figure class="white">
-                         <img src="{{asset('img/' . $post->image)}}" alt="" />
+                         <img src="{{asset('storage/' . $post->image)}}" alt="" />
 
                                     </figure>
 
@@ -55,7 +55,7 @@
                         ])
                     </div>
                 </div>
-       
+
 
             </div>
 
@@ -66,11 +66,15 @@
 
 
                 </div>
-                @foreach ($comment as $comments)
+                @foreach ($comments as $comment)
                 <div class="post-reply">
-                    <div class="image-reply-post"></div>
-                    <div class="name-reply-post"></div>
-                    <div class="text-reply-post">Awesome mockup, i like it very much ! It will help me for my website i was looking for since few days. Thank you a lot.</div>
+                    <div class="image-reply-post">
+                        {{ $comment->title }}
+                    </div>
+                    <div class="name-reply-post">
+                        {{ $comment->pseudo }}
+                    </div>
+                    <div class="text-reply-post">{{ $comment->content }}</div>
                 </div>
                 @endforeach
 
