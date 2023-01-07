@@ -5,30 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+class Post extends Model
+{
+    use HasFactory;
+    public function category() {
+        return $this->belongsTo(\App\Models\Category::class, 'category_id');
+    }
+    public function user() {
+        return $this->belongsTo(\App\Models\User::class);
+    }
 
-
- class Post extends Model
- {
-     use HasFactory;
- 
-     public function Thecategory()
-     {
-        $this->belongsTo(category::class,'category_id');
-     }
-
-    public function Thecomments()
+    public function comments()
     {
-        $this->belongsTo(comments::class);
-
+        return $this->hasMany(Comment::class);
     }
-
-    public function Theuser()
-    {
-        $this->belongsTo(user::class);
-    }
-
-
-    }
+}
 
 
 
