@@ -400,10 +400,10 @@ body,html{
 	float:left;
 	width:65px;
 	height:65px;
-	background: {{asset('img/avatar.png')}} no-repeat;
+	background: {{ asset('storage/' . $post->image) }} no-repeat;
 	top:0;
 }
-.image-reply-post{background: {{asset('img/avatar.png')}} no-repeat;}
+.image-reply-post{background: {{ asset('storage/' . $post->image) }} no-repeat;}
 .image-reply-post-2{background: {{asset('img/avatar-2.png')}} no-repeat;}
 .name-reply-post,.name-reply-post-2{
 	float:left;

@@ -20,7 +20,7 @@
 
             <div class="work">
                 <figure class="white">
-                         <img src="{{asset('img/' . $post->image)}}" alt="" />
+                         <img src="{{asset('storage/' . $post->image)}}" alt="" />
 
                                     </figure>
 
@@ -28,7 +28,7 @@
 
 
                 <div class="wrapper-file">
-                    <div class="icon-file"><img src="{{asset('img/icon-psdfile.svg')}}" alt="" width="21" height="21"/></div>
+                    <div class="icon-file"><img src="{{asset('storage/' . $post->category->image)}}" alt="" width="21" height="21"/></div>
                     <div class="text-file">{{$post->category->name}}</div>
                 </div>
 
@@ -55,7 +55,7 @@
                         ])
                     </div>
                 </div>
-       
+
 
             </div>
 
@@ -66,11 +66,16 @@
 
 
                 </div>
-                @foreach ($comment as $comments)
+                @foreach ($comments as $comment)
                 <div class="post-reply">
-                    <div class="image-reply-post"></div>
-                    <div class="name-reply-post"></div>
-                    <div class="text-reply-post">Awesome mockup, i like it very much ! It will help me for my website i was looking for since few days. Thank you a lot.</div>
+                    <div class="image-reply-post ">
+                        <img class="image-reply-post " src="{{ asset('storage/' . $comment->avatar) }}" alt="">
+                        {{ $comment->title }}
+                    </div>
+                    <div class="name-reply-post">
+                        {{ $comment->pseudo }}
+                    </div>
+                    <div class="text-reply-post">{{ $comment->content }}</div>
                 </div>
                 @endforeach
 
